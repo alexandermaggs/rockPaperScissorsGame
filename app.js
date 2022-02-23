@@ -74,9 +74,12 @@ const compareChoice = () => {
     computerWins();
   } else if (userChoice === "rock" && computerChoice === "rock") {
     result.innerHTML = "<p>Rock n roll. It's a draw. </p>";
+    drawResult();
   } else if (userChoice === "paper" && computerChoice === "paper") {
     result.innerHTML = "<p>Both have paper hands. It's a draw. </p>";
+    drawResult();
   } else if (userChoice === "scissors" && computerChoice === "scissors") {
     result.innerHTML = "<p>Too much sharpness. It's a draw. </p>";
+    drawResult();
   }
 };
