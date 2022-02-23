@@ -36,46 +36,47 @@ scissors.addEventListener("click", function () {
   compareChoice(userChoice);
 });
 
+const userWins = () => {
+  actionMessage.textContent = "Well done.";
+  userTally++;
+  userScore.textContent = userTally;
+};
+
+const computerWins = () => {
+  actionMessage.textContent = "You lose.";
+  computerTally++;
+  computerScore.textContent = computerTally;
+};
+
+const drawResult = () => {
+  actionMessage.textContent = "Draw!";
+};
+
 const compareChoice = () => {
   let computerChoice = randomPick();
   if (userChoice === "rock" && computerChoice === "scissors") {
     result.innerHTML = "<p>Rock beats scissors. You win!</p>";
-    actionMessage.textContent = "Well done.";
-    userTally++;
-    userScore.textContent = userTally;
+    userWins();
   } else if (userChoice === "paper" && computerChoice === "rock") {
     result.innerHTML = "<p>Paper beats rock. You win!";
-    actionMessage.textContent = "Well done.";
-    userTally++;
-    userScore.textContent = userTally;
+    userWins();
   } else if (userChoice === "scissors" && computerChoice === "paper") {
     result.innerHTML = "<p>Scissors beats paper. You win!</p>";
-    actionMessage.textContent = "Well done.";
-    userTally++;
-    userScore.textContent = userTally;
+    userWins();
   } else if (userChoice === "paper" && computerChoice === "scissors") {
     result.innerHTML = "<p>Paper loses to scissors. You lose.</p>";
-    actionMessage.textContent = "You lose.";
-    computerTally++;
-    computerScore.textContent = computerTally;
+    computerWins();
   } else if (userChoice === "scissors" && computerChoice === "rock") {
     result.innerHTML = "<p>Scissors loses to rock. You lose. </p>";
-    actionMessage.textContent = "You lose.";
-    computerTally++;
-    computerScore.textContent = computerTally;
+    computerWins();
   } else if (userChoice === "rock" && computerChoice === "paper") {
     result.innerHTML = "<p>Rock loses to paper. You lose.</p>";
-    actionMessage.textContent = "You lose.";
-    computerTally++;
-    computerScore.textContent = computerTally;
+    computerWins();
   } else if (userChoice === "rock" && computerChoice === "rock") {
     result.innerHTML = "<p>Rock n roll. It's a draw. </p>";
-    actionMessage.textContent = "Draw!";
   } else if (userChoice === "paper" && computerChoice === "paper") {
     result.innerHTML = "<p>Both have paper hands. It's a draw. </p>";
-    actionMessage.textContent = "Draw!";
   } else if (userChoice === "scissors" && computerChoice === "scissors") {
     result.innerHTML = "<p>Too much sharpness. It's a draw. </p>";
-    actionMessage.textContent = "Draw!";
   }
 };
